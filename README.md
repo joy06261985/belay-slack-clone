@@ -15,8 +15,10 @@ Belay is a capstone project for Web Development, aimed at creating a modern, dat
 ### Installation
 
 1. Clone the repository to your local machine
-   <git clone>
-   cd 
+   ```
+   git clone
+   cd
+   ```
 3. Install the required dependencies
    pip3 install -r requirements.txt
 
