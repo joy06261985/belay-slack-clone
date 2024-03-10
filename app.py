@@ -9,10 +9,8 @@ from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-# app = Flask(__name__, static_folder='react/build', static_url_path='')
 
 CORS(app, resources={r"/api/*": {"origins": "*"}})
-# CORS(app)
 
 
 def get_db():
@@ -68,28 +66,6 @@ def new_user_sign_up(name, password):
     return u
 
 # -------------------------------- ROUTES ----------------------------------
-# try to use flask run run two servers
-
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def serve(path):
-#     if path != "" and os.path.exists(app.static_folder + '/' + path):
-#         return send_from_directory(app.static_folder, path)
-#     else:
-#         return send_from_directory(app.static_folder, 'index.html')
-
-
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve(path):
-    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
-        print("path exists")
-        return send_from_directory(app.static_folder, path)
-    else:
-        print("index.html")
-        return send_from_directory(app.static_folder, 'index.html')
-
-
 @app.route('/')
 @app.route('/login')
 @app.route('/home')
@@ -102,10 +78,6 @@ def index(chat_id=None, message_id=None):
 
 # -------------------------------- API ROUTES ----------------------------------
 # -------------------------------- API REQUIREMENT ----------------------------------
-
-# TODO: Create the API
-
-
 def require_api_key(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -118,8 +90,6 @@ def require_api_key(f):
     return decorated_function
 
 # -------------------------------- USER ----------------------------------
-
-
 @app.route('/api/login', methods=['POST'])
 def login():
 
@@ -254,7 +224,6 @@ def get_channel(channel_id):
 # -------------------------------- MESSAGES ----------------------------------
 
 # POST to post a new message to a room
-
 
 @app.route('/api/channels/<int:channel_id>/messages/post', methods=['POST'])
 @require_api_key
@@ -492,12 +461,6 @@ def get_reaction_users(message_id, emoji):
 
 
 # -------------------------------- API RUN ----------------------------------
-# app.run(host='127.0.0.1', port=5000, debug=True)
-
-# if __name__ == '__main__':
-#     app.run(host='127.0.0.1', port=5000, debug=True)
-
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True, use_reloader=False)
 
-    # app.run(host='0.0.0.0', port=8000, debug=True, use_reloader=False)
