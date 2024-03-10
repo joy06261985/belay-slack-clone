@@ -1,4 +1,24 @@
-# Final Project: Belay (a Slack clone)
+# Belay - A Slack Clone
+
+## Introduction
+
+Belay is a capstone project for Web Development, aimed at creating a modern, database-backed single-page application that functions similarly to Slack. This application allows users to send and receive real-time chat messages organized into channels, along with other features like message threading and emoji reactions.
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.11+
+- Flask
+- SQLite3
+
+### Installation
+
+1. Clone the repository to your local machine
+   <git clone>
+   cd 
+3. Install the required dependencies
+   pip3 install -r requirements.txt
 
 ## Running the Application  
 1. install the requirement.txt.   
