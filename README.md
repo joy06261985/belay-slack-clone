@@ -24,7 +24,7 @@ Belay is a capstone project for Web Development, aimed at creating a modern, dat
    pip3 install -r requirements.txt
    ```
    
-## Running the Application  
+### Running the Application  
 1. Start the Flask application:
    ``` bash
    flask run
